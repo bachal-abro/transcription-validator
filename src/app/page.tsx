@@ -22,33 +22,33 @@ export default async function HomePage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-muted/30">
       {/* Header */}
-      <header className="border-b bg-background/80 backdrop-blur-sm sticky top-0 z-40">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="h-10 w-10 rounded-lg bg-primary flex items-center justify-center">
-              <Languages className="h-5 w-5 text-primary-foreground" />
+      <header className="border-b bg-background/80 backdrop-blur-sm sticky top-0 z-40 shadow-sm">
+        <div className="container mx-auto px-4 sm:px-6 py-3 sm:py-4">
+          <div className="flex items-center gap-2 sm:gap-3">
+            <div className="h-10 w-10 sm:h-12 sm:w-12 rounded-xl bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center shadow-md">
+              <Languages className="h-5 w-5 sm:h-6 sm:w-6 text-primary-foreground" />
             </div>
-            <div>
-              <h1 className="font-bold text-lg">Transcription Validator</h1>
-              <p className="text-xs text-muted-foreground">Pakistani Languages</p>
+            <div className="min-w-0 flex-1">
+              <h1 className="font-bold text-base sm:text-lg truncate">Transcription Validator</h1>
+              <p className="text-xs text-muted-foreground hidden sm:block">Pakistani Languages</p>
             </div>
           </div>
         </div>
       </header>
 
       {/* Hero Section */}
-      <section className="container mx-auto px-4 py-12 text-center">
-        <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-6">
-          <Headphones className="h-8 w-8 text-primary" />
+      <section className="container mx-auto px-4 sm:px-6 py-8 sm:py-12">
+        <div className="text-center max-w-3xl mx-auto">
+          <div className="inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-primary/10 mb-4 sm:mb-6">
+            <Headphones className="h-7 w-7 sm:h-8 sm:w-8 text-primary" />
+          </div>
+          <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 px-4">
+            Help Improve AI Transcriptions
+          </h2>
+          <p className="text-sm sm:text-base text-muted-foreground px-4 mb-6 sm:mb-8 leading-relaxed">
+            Listen to audio and compare AI transcriptions. Your feedback improves speech recognition for Pakistani languages including <span className="font-arabic text-base sm:text-lg">پښتو</span> (Pashto) and <span className="font-arabic text-base sm:text-lg">اردو</span> (Urdu).
+          </p>
         </div>
-        <h2 className="text-3xl font-bold mb-4">
-          Help Improve AI Transcriptions
-        </h2>
-        <p className="text-muted-foreground max-w-2xl mx-auto mb-8">
-          Listen to audio recordings and compare transcriptions from different AI models.
-          Your feedback helps us build better speech recognition for Pakistani languages
-          including <span className="font-arabic">پښتو</span> (Pashto) and <span className="font-arabic">اردو</span> (Urdu).
-        </p>
       </section>
 
       {/* Main Content */}

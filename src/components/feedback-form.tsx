@@ -70,18 +70,18 @@ export function FeedbackForm({
     return (
       <Card className="relative overflow-hidden rounded-2xl border-2 border-emerald-200 dark:border-emerald-800/50 shadow-lg">
         <div className="absolute inset-0 bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50 dark:from-emerald-950/30 dark:via-teal-950/30 dark:to-cyan-950/30" />
-        <CardContent className="pt-8 pb-8 relative z-10">
+        <CardContent className="pt-6 pb-6 sm:pt-8 sm:pb-8 relative z-10">
           <div className="text-center">
-            <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-500 mb-4 shadow-lg shadow-emerald-500/25">
-              <MessageSquare className="h-8 w-8 text-white" />
+            <div className="inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-500 mb-3 sm:mb-4 shadow-lg shadow-emerald-500/25">
+              <MessageSquare className="h-7 w-7 sm:h-8 sm:w-8 text-white" />
             </div>
-            <h3 className="font-bold text-2xl mb-2 bg-gradient-to-r from-emerald-700 to-teal-600 dark:from-emerald-400 dark:to-teal-400 bg-clip-text text-transparent">
+            <h3 className="font-bold text-xl sm:text-2xl mb-2 bg-gradient-to-r from-emerald-700 to-teal-600 dark:from-emerald-400 dark:to-teal-400 bg-clip-text text-transparent">
               Thank You!
             </h3>
-            <p className="text-slate-600 dark:text-slate-400 mb-6">
-              Your feedback has been submitted successfully and will help improve our AI models.
+            <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 mb-4 sm:mb-6 px-4">
+              Your feedback has been submitted and will help improve our AI models.
             </p>
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 text-sm font-medium">
+            <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 text-xs sm:text-sm font-medium">
               <div className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
               Feedback recorded
             </div>
@@ -94,38 +94,38 @@ export function FeedbackForm({
   return (
     <Card className="relative overflow-hidden rounded-2xl border-2 border-slate-200 dark:border-slate-700 shadow-lg">
       <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-purple-500 to-pink-500" />
-      <CardHeader className="pb-4">
-        <CardTitle className="text-xl flex items-center gap-3">
-          <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-primary/10 to-purple-500/10 flex items-center justify-center">
-            <MessageSquare className="h-5 w-5 text-primary" />
+      <CardHeader className="pb-3 sm:pb-4">
+        <CardTitle className="text-lg sm:text-xl flex items-center gap-2 sm:gap-3">
+          <div className="h-9 w-9 sm:h-10 sm:w-10 rounded-xl bg-gradient-to-br from-primary/10 to-purple-500/10 flex items-center justify-center">
+            <MessageSquare className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
           </div>
           <span className="bg-gradient-to-r from-slate-900 to-slate-600 dark:from-white dark:to-slate-300 bg-clip-text text-transparent">
             Additional Feedback
           </span>
         </CardTitle>
-        <CardDescription className="text-sm mt-2">
-          Help us improve by noting specific errors, mispronunciations, or quality issues
+        <CardDescription className="text-xs sm:text-sm mt-1.5 sm:mt-2">
+          Note specific errors, mispronunciations, or quality issues
         </CardDescription>
       </CardHeader>
-      <CardContent className="space-y-4">
+      <CardContent className="space-y-3 sm:space-y-4">
         <Textarea
-          placeholder="e.g., Word 'X' was mispronounced at 0:15, missing pause between sentences, unclear audio quality..."
+          placeholder="e.g., Word 'X' was mispronounced at 0:15, missing pause between sentences..."
           value={comments}
           onChange={(e) => setComments(e.target.value)}
           disabled={disabled || isSubmitting}
-          rows={4}
-          className="rounded-xl border-2 border-slate-200 dark:border-slate-700 focus:border-primary resize-none transition-colors"
+          rows={3}
+          className="rounded-xl border-2 border-slate-200 dark:border-slate-700 focus:border-primary resize-none transition-colors text-sm"
         />
 
         {error && (
-          <div className="flex items-start gap-2 p-3 rounded-xl bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-800 text-red-700 dark:text-red-300 text-sm">
-            <AlertCircle className="h-4 w-4 mt-0.5 flex-shrink-0" />
+          <div className="flex items-start gap-2 p-2.5 sm:p-3 rounded-xl bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-800 text-red-700 dark:text-red-300 text-xs sm:text-sm">
+            <AlertCircle className="h-3.5 w-3.5 sm:h-4 sm:w-4 mt-0.5 flex-shrink-0" />
             <span>{error}</span>
           </div>
         )}
 
-        <div className="flex items-center justify-between pt-2">
-          <div className="flex items-center gap-2">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 pt-1 sm:pt-2">
+          <div className="flex items-center justify-center sm:justify-start">
             {selectedTranscriptionId ? (
               <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800">
                 <div className="h-2 w-2 rounded-full bg-emerald-500" />
@@ -145,7 +145,7 @@ export function FeedbackForm({
           <Button 
             onClick={handleSubmit} 
             disabled={disabled || isSubmitting}
-            className="rounded-xl h-11 px-6 font-semibold bg-gradient-to-r from-primary to-purple-600 hover:from-primary/90 hover:to-purple-600/90 shadow-md hover:shadow-lg transition-all"
+            className="w-full sm:w-auto rounded-xl h-11 px-6 font-semibold bg-gradient-to-r from-primary to-purple-600 hover:from-primary/90 hover:to-purple-600/90 shadow-md hover:shadow-lg transition-all"
           >
             {isSubmitting ? (
               <>

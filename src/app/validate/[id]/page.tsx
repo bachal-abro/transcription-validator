@@ -133,27 +133,27 @@ export default function ValidatePage() {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/20 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 pb-32">
       {/* Header */}
       <header className="border-b border-slate-200/50 dark:border-slate-800/50 bg-white/70 dark:bg-slate-950/70 backdrop-blur-xl sticky top-0 z-40 shadow-sm">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-4">
+        <div className="container mx-auto px-3 sm:px-4 py-3 sm:py-4">
+          <div className="flex items-center justify-between gap-2">
+            <div className="flex items-center gap-2 sm:gap-4 min-w-0 flex-1">
               <Link href="/">
-                <Button variant="ghost" size="icon" className="hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl">
-                  <ArrowLeft className="h-5 w-5" />
+                <Button variant="ghost" size="icon" className="h-9 w-9 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl shrink-0">
+                  <ArrowLeft className="h-4 w-4 sm:h-5 sm:w-5" />
                 </Button>
               </Link>
-              <div className="min-w-0">
-                <h1 className="font-bold text-lg truncate bg-gradient-to-r from-slate-900 to-slate-600 dark:from-white dark:to-slate-300 bg-clip-text text-transparent">
+              <div className="min-w-0 flex-1">
+                <h1 className="font-bold text-sm sm:text-lg truncate">
                   {audio.audio_name}
                 </h1>
-                <div className="flex items-center gap-2 mt-1">
-                  <Badge variant="outline" className="text-xs border-primary/20 bg-primary/5">
-                    <Languages className="h-3 w-3 mr-1" />
+                <div className="flex items-center gap-2 mt-0.5 sm:mt-1">
+                  <Badge variant="outline" className="text-[10px] sm:text-xs border-primary/20 bg-primary/5 h-5">
+                    <Languages className="h-2.5 w-2.5 sm:h-3 sm:w-3 mr-0.5 sm:mr-1" />
                     {audio.language_tag || 'Unknown'}
                   </Badge>
                   {totalVotes > 0 && (
-                    <span className="text-xs font-medium text-emerald-600 dark:text-emerald-400 flex items-center gap-1">
-                      <div className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                      {totalVotes} vote{totalVotes !== 1 ? 's' : ''}
+                    <span className="text-[10px] sm:text-xs font-medium text-emerald-600 dark:text-emerald-400 flex items-center gap-1">
+                      <div className="h-1 w-1 sm:h-1.5 sm:w-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                      {totalVotes}
                     </span>
                   )}
                 </div>
@@ -161,20 +161,20 @@ export default function ValidatePage() {
             </div>
 
             {/* Navigation */}
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
               <Button
                 variant="outline"
                 size="sm"
                 disabled={!prevAudio}
                 onClick={() => prevAudio && router.push(`/validate/${prevAudio.id}`)}
-                className="rounded-xl border-slate-200 dark:border-slate-700 hover:border-primary/50 hover:bg-primary/5 transition-all"
+                className="h-9 w-9 sm:w-auto sm:px-3 rounded-xl border-slate-200 dark:border-slate-700"
               >
                 <ChevronLeft className="h-4 w-4" />
-                <span className="hidden sm:inline ml-1">Previous</span>
+                <span className="hidden sm:inline ml-1">Prev</span>
               </Button>
-              <div className="px-3 py-1.5 rounded-xl bg-gradient-to-r from-primary/10 to-purple-500/10 border border-primary/20">
+              <div className="hidden sm:flex px-3 py-1.5 rounded-xl bg-gradient-to-r from-primary/10 to-purple-500/10 border border-primary/20">
                 <span className="text-sm font-semibold bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent">
-                  {currentIndex + 1} / {allAudios.length}
+                  {currentIndex + 1}/{allAudios.length}
                 </span>
               </div>
               <Button
@@ -182,7 +182,7 @@ export default function ValidatePage() {
                 size="sm"
                 disabled={!nextAudio}
                 onClick={() => nextAudio && router.push(`/validate/${nextAudio.id}`)}
-                className="rounded-xl border-slate-200 dark:border-slate-700 hover:border-primary/50 hover:bg-primary/5 transition-all"
+                className="h-9 w-9 sm:w-auto sm:px-3 rounded-xl border-slate-200 dark:border-slate-700"
               >
                 <span className="hidden sm:inline mr-1">Next</span>
                 <ChevronRight className="h-4 w-4" />
@@ -193,38 +193,37 @@ export default function ValidatePage() {
       </header>
 
       {/* Main Content */}
-      <main className="container mx-auto px-4 py-8 max-w-7xl">
+      <main className="container mx-auto px-3 sm:px-4 py-4 sm:py-8 max-w-7xl">
         {/* Instructions */}
-        <div className="relative overflow-hidden rounded-2xl mb-8 shadow-lg shadow-primary/5">
+        <div className="relative overflow-hidden rounded-2xl mb-4 sm:mb-8 shadow-lg shadow-primary/5">
           <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-purple-500/10 to-pink-500/10" />
-          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNIDQwIDAgTCAwIDAgMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMDUpIiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-50" />
-          <div className="relative backdrop-blur-sm border border-white/20 dark:border-white/10 rounded-2xl p-8">
-            <div className="flex items-start gap-4">
+          <div className="relative backdrop-blur-sm border border-white/20 dark:border-white/10 rounded-2xl p-4 sm:p-8">
+            <div className="flex flex-col sm:flex-row items-start gap-3 sm:gap-4">
               <div className="shrink-0">
-                <div className="h-14 w-14 rounded-2xl bg-gradient-to-br from-primary to-purple-600 flex items-center justify-center shadow-lg shadow-primary/25">
-                  <Languages className="h-7 w-7 text-white" />
+                <div className="h-12 w-12 sm:h-14 sm:w-14 rounded-2xl bg-gradient-to-br from-primary to-purple-600 flex items-center justify-center shadow-lg shadow-primary/25">
+                  <Languages className="h-6 w-6 sm:h-7 sm:w-7 text-white" />
                 </div>
               </div>
               <div className="flex-1">
-                <h2 className="font-bold text-xl mb-3 bg-gradient-to-r from-slate-900 to-slate-600 dark:from-white dark:to-slate-300 bg-clip-text text-transparent">
-                  How to Validate Transcriptions
+                <h2 className="font-bold text-lg sm:text-xl mb-2 sm:mb-3 bg-gradient-to-r from-slate-900 to-slate-600 dark:from-white dark:to-slate-300 bg-clip-text text-transparent">
+                  How to Validate
                 </h2>
-                <div className="grid sm:grid-cols-2 gap-3">
-                  <div className="flex items-start gap-3 p-3 rounded-xl bg-white/50 dark:bg-slate-900/50 border border-slate-200/50 dark:border-slate-700/50">
-                    <div className="shrink-0 h-7 w-7 rounded-lg bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center text-white font-bold text-sm shadow-md">1</div>
-                    <p className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed">Listen to the audio recording using the player below</p>
+                <div className="grid sm:grid-cols-2 gap-2 sm:gap-3">
+                  <div className="flex items-start gap-2 sm:gap-3 p-2.5 sm:p-3 rounded-xl bg-white/50 dark:bg-slate-900/50 border border-slate-200/50 dark:border-slate-700/50">
+                    <div className="shrink-0 h-6 w-6 sm:h-7 sm:w-7 rounded-lg bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center text-white font-bold text-xs sm:text-sm shadow-md">1</div>
+                    <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">Listen to the audio</p>
                   </div>
-                  <div className="flex items-start gap-3 p-3 rounded-xl bg-white/50 dark:bg-slate-900/50 border border-slate-200/50 dark:border-slate-700/50">
-                    <div className="shrink-0 h-7 w-7 rounded-lg bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-white font-bold text-sm shadow-md">2</div>
-                    <p className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed">Read both transcription versions carefully (RTL format)</p>
+                  <div className="flex items-start gap-2 sm:gap-3 p-2.5 sm:p-3 rounded-xl bg-white/50 dark:bg-slate-900/50 border border-slate-200/50 dark:border-slate-700/50">
+                    <div className="shrink-0 h-6 w-6 sm:h-7 sm:w-7 rounded-lg bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-white font-bold text-xs sm:text-sm shadow-md">2</div>
+                    <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">Read both versions</p>
                   </div>
-                  <div className="flex items-start gap-3 p-3 rounded-xl bg-white/50 dark:bg-slate-900/50 border border-slate-200/50 dark:border-slate-700/50">
-                    <div className="shrink-0 h-7 w-7 rounded-lg bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center text-white font-bold text-sm shadow-md">3</div>
-                    <p className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed">Vote for the more accurate version</p>
+                  <div className="flex items-start gap-2 sm:gap-3 p-2.5 sm:p-3 rounded-xl bg-white/50 dark:bg-slate-900/50 border border-slate-200/50 dark:border-slate-700/50">
+                    <div className="shrink-0 h-6 w-6 sm:h-7 sm:w-7 rounded-lg bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center text-white font-bold text-xs sm:text-sm shadow-md">3</div>
+                    <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">Vote for better one</p>
                   </div>
-                  <div className="flex items-start gap-3 p-3 rounded-xl bg-white/50 dark:bg-slate-900/50 border border-slate-200/50 dark:border-slate-700/50">
-                    <div className="shrink-0 h-7 w-7 rounded-lg bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center text-white font-bold text-sm shadow-md">4</div>
-                    <p className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed">Add comments about specific errors (optional)</p>
+                  <div className="flex items-start gap-2 sm:gap-3 p-2.5 sm:p-3 rounded-xl bg-white/50 dark:bg-slate-900/50 border border-slate-200/50 dark:border-slate-700/50">
+                    <div className="shrink-0 h-6 w-6 sm:h-7 sm:w-7 rounded-lg bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center text-white font-bold text-xs sm:text-sm shadow-md">4</div>
+                    <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">Add notes (optional)</p>
                   </div>
                 </div>
               </div>
@@ -249,7 +248,7 @@ export default function ValidatePage() {
           </div>
         ) : (
           <>
-            <div className="grid md:grid-cols-2 gap-6 mb-8">
+            <div className="grid gap-4 sm:gap-6 mb-4 sm:mb-8">
               {sortedTranscriptions.map(transcription => (
                 <TranscriptionCard
                   key={transcription.id}

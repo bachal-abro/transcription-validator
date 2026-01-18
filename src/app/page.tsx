@@ -34,12 +34,6 @@ export default async function HomePage() {
               <p className="text-xs text-muted-foreground">Pakistani Languages</p>
             </div>
           </div>
-          <Link href="/admin">
-            <Button variant="outline" size="sm">
-              <Settings className="h-4 w-4 mr-2" />
-              Admin
-            </Button>
-          </Link>
         </div>
       </header>
 

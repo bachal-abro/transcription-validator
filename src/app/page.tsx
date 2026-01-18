@@ -1,8 +1,7 @@
 import Link from 'next/link';
 import { createServerClient } from '@/lib/supabase/client';
 import { AudioGallery } from '@/components/audio-gallery';
-import { Button } from '@/components/ui/button';
-import { Settings, Languages, Headphones } from 'lucide-react';
+import { Languages, Headphones } from 'lucide-react';
 
 export const dynamic = 'force-dynamic';
 

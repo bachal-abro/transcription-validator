@@ -2,6 +2,9 @@ import { createServerClient } from '@/lib/supabase/client';
 import { NextRequest, NextResponse } from 'next/server';
 import type { AudioInsert } from '@/types/database';
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 export async function POST(request: NextRequest) {
   try {
     const formData = await request.formData();
@@ -111,7 +114,9 @@ export async function GET() {
       return NextResponse.json({ error: error.message }, { status: 500 });
     }
 
-    return NextResponse.json({ audios: data });
+    const response = NextResponse.json({ audios: data });
+    response.headers.set('Cache-Control', 'no-store, max-age=0');
+    return response;
   } catch (error) {
     console.error('Fetch error:', error);
     return NextResponse.json(

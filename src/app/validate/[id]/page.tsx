@@ -43,8 +43,13 @@ export default function ValidatePage() {
       setError(null);
 
       try {
-        // Fetch current audio data
-        const response = await fetch(`/api/audio/${audioId}`);
+        // Fetch current audio data with cache busting
+        const response = await fetch(`/api/audio/${audioId}?t=${Date.now()}`, {
+          cache: 'no-store',
+          headers: {
+            'Cache-Control': 'no-cache',
+          },
+        });
         if (!response.ok) {
           const errData = await response.json();
           throw new Error(errData.error || 'Failed to load audio');
@@ -53,7 +58,12 @@ export default function ValidatePage() {
         setData(audioData);
 
         // Fetch all audios for navigation
-        const audiosResponse = await fetch('/api/upload');
+        const audiosResponse = await fetch(`/api/upload?t=${Date.now()}`, {
+          cache: 'no-store',
+          headers: {
+            'Cache-Control': 'no-cache',
+          },
+        });
         if (audiosResponse.ok) {
           const audiosData = await audiosResponse.json();
           setAllAudios(audiosData.audios || []);
@@ -75,7 +85,12 @@ export default function ValidatePage() {
   const handleFeedbackSubmit = async () => {
     // Refresh vote counts after submission
     try {
-      const response = await fetch(`/api/audio/${audioId}`);
+      const response = await fetch(`/api/audio/${audioId}?t=${Date.now()}`, {
+        cache: 'no-store',
+        headers: {
+          'Cache-Control': 'no-cache',
+        },
+      });
       if (response.ok) {
         const audioData = await response.json();
         setData(audioData);
